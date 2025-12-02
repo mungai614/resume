@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jeremy Mungai - Portfolio</title>
+
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>JEREMY MUNGAI</h1>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="toggle-btn" aria-label="Toggle Dark Mode">Light Mode</button>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div id="hero-text">
+      <h1>Hello, I'm Jeremy</h1>
+      <p>I am a <span id="typing">passionate developer.</span></p>
+      <a href="pdf/resume.pdf" download id="resume-btn" aria-label="Download Resume">Download Resume</a>
+
+      <div id="social-links" aria-label="Social Media Links">
+        <a href="https://github.com/mungai614" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+
+    <div id="hero-photo">
+      <img src="images/jeremy.jpg" alt="Jeremy Mungai Photo" />
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Hello! I'm a passionate developer who loves turning coffee into code. I specialize in building sleek, modern websites and interactive apps.
+      I'm currently pursuing a degree in <strong>Business Administration with IT</strong> at <strong>Maseno University</strong>,
+      and I completed a Full-Stack Development course at <strong>eMobilis School of Information and Technology</strong>.
+      Welcome to my portfolio!
+    </p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-list">
+      <div class="project-card">
+        <h3>Project One</h3>
+        <p>A Restaurant management system. I implemented both frontend and backend together with its database.</p>
+      </div>
+      <div class="project-card">
+        <h3>Project Two</h3>
+        <p>An online shopping website for clothes. I implemented both frontend and backend together with its database.</p>
+      </div>
+      <div class="project-card">
+        <h3>Project Three</h3>
+        <p>A Hospital management system. I implemented both frontend and backend together with its database.<br>...And many others...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <li>React</li>
+      <li>Git</li>
+      <li>Python</li>
+      <li>Django</li>
+      <li>SQL</li>
+      <li>Kotlin</li>
+    </ul>
+  </section>
+
+  <!-- Hobbies Section -->
+  <section id="hobbies">
+    <h2>Hobbies</h2>
+    <ul>
+      <li>Table Tennis</li>
+      <li>Photography</li>
+    </ul>
+  </section>
+
+  <!-- Certificate Section -->
+  <section id="certificate">
+    <h2>Certificate</h2>
+    <div class="certificate-container">
+      <img src="images/cert.jpg" alt="Certificate of Completion" />
+      <a href="images/cert.jpg" download class="certificate-btn" aria-label="Download Certificate">Download Certificate</a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-container">
+      <div class="contact-info">
+        <div>
+          <strong>Address</strong>
+          <p>Kisumu, Kenya</p>
+        </div>
+        <div>
+          <strong>Call Me</strong>
+          <p>+254 720597285</p>
+        </div>
+        <div>
+          <strong>Email Me</strong>
+          <p>mungajeremia886@gmail.com</p>
+        </div>
+      </div>
+
+      <form id="contact-form" method="post" action="">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Jeremy Mungai. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
