@@ -5,147 +5,592 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jeremy Mungai - Portfolio</title>
 
-<link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
-
+  <link rel="stylesheet" href="style.css">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+ /* --- General Styles --- */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+}
 
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  flex-wrap: wrap;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav h1 {
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+}
+
+/* Navigation links always visible */
+nav ul li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #e0e0e0; /* Dark mode default */
+  transition: color 0.3s;
+}
+
+body.light nav ul li a {
+  color: #121212; /* Light mode default */
+}
+
+nav ul li a:hover {
+  color: #90caf9; /* Accent hover color */
+}
+
+nav button {
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* --- Sections --- */
+section {
+  padding: 50px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* --- Hero Section --- */
+#hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 20px;
+}
+
+#hero-text {
+  flex: 1 1 400px;
+}
+#hero-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+#hero-text p {
+  font-size: 1.2rem;
+}
+#resume-btn {
+  display: inline-block;
+  margin: 15px 0;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+#social-links a {
+  margin-right: 10px;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+#hero-photo img {
+  max-width: 300px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* --- Projects Section --- */
+.project-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.project-card {
+  flex: 1 1 300px;
+  border-radius: 10px;
+  padding: 15px;
+  transition: transform 0.2s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.project-links a {
+  display: inline-block;
+  margin-right: 10px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* --- Skills & Hobbies --- */
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+ul li {
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+/* --- Contact Section --- */
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+}
+
+#contact-form input,
+#contact-form textarea,
+#contact-form button {
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid;
+}
+
+#contact-form button {
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* --- Dark Mode --- */
+body.dark {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark header nav {
+  background-color: #1b1b1b;
+}
+body.dark #hero {
+  background-color: #1e1e1e;
+}
+body.dark .project-card,
+body.dark .certificate-container {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05);
+}
+body.dark input,
+body.dark textarea {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  border: 1px solid #555;
+}
+body.dark a,
+body.dark #social-links a,
+body.dark .project-links a {
+  color: #90caf9;
+}
+body.dark #resume-btn,
+body.dark #contact-form button,
+body.dark ul li {
+  background-color: #90caf9;
+  color: #121212;
+}
+
+/* --- Light Mode --- */
+body.light {
+  background-color: #f5f5f5;
+  color: #121212;
+}
+
+body.light header nav {
+  background-color: #ffffff;
+}
+body.light #hero {
+  background-color: #e0e0e0;
+}
+body.light .project-card,
+body.light .certificate-container {
+  background-color: #ffffff;
+  color: #121212;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+body.light input,
+body.light textarea {
+  background-color: #ffffff;
+  color: #121212;
+  border: 1px solid #ccc;
+}
+body.light a,
+body.light #social-links a,
+body.light .project-links a {
+  color: #1976d2;
+}
+body.light #resume-btn,
+body.light #contact-form button,
+body.light ul li {
+  background-color: #1976d2;
+  color: #ffffff;
+}
+
+/* --- Mobile Navigation --- */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+  nav ul.show {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* --- Mobile Optimization (Phones) --- */
+@media (max-width: 480px) {
+  #hero {
+    flex-direction: column;
+    padding: 30px 10px;
+    text-align: center;
+  }
+  #hero-text h1 {
+    font-size: 1.8rem;
+  }
+  #hero-text p {
+    font-size: 1rem;
+  }
+  #hero-photo img {
+    max-width: 200px;
+    margin-top: 20px;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+  nav ul li a {
+    font-size: 1rem;
+    padding: 10px 0;
+  }
+  .menu-toggle {
+    font-size: 1.8rem;
+  }
+  .project-list {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .project-card {
+    flex: 1 1 100%;
+    padding: 10px;
+  }
+  .project-card h3 {
+    font-size: 1.2rem;
+  }
+  .project-card p, .project-card ul li {
+    font-size: 0.9rem;
+  }
+  #skills ul, #hobbies ul {
+    flex-direction: column;
+    gap: 8px;
+  }
+  ul li {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+  #contact-form input,
+  #contact-form textarea,
+  #contact-form button {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+  #contact-form button {
+    margin-top: 10px;
+  }
+  footer {
+    padding: 15px 10px;
+    font-size: 0.9rem;
+  }
+}
+
+</style>
 </head>
-<body>
-  <header>
-    <nav>
-      <h1>JEREMY MUNGAI</h1>
+
+<body class="dark">
+
+<header>
+  <nav>
+    <h1>JEREMY MUNGAI</h1>
+
+    <button class="menu-toggle" aria-label="Menu">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <ul id="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <button id="toggle-btn">Light Mode</button>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<section id="hero">
+  <div id="hero-text">
+    <h1>Hello, I'm Jeremy</h1>
+    <p>I am a <span id="typing">passionate developer.</span></p>
+    <a href="pdf/resume.pdf" download id="resume-btn" aria-label="Download Resume">Download Resume</a>
+    <div id="social-links">
+      <a href="https://github.com/mungai614" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </div>
+  <div id="hero-photo">
+    <img src="images/jeremy.jpg" alt="Jeremy Mungai Photo" />
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+      Hello! I’m a passionate full-stack developer who loves turning coffee into code. I specialize in building sleek, responsive websites and interactive applications using HTML, CSS, JavaScript, React, Django, Python, SQL, and Kotlin. I thrive in collaborative environments, excel at solving complex problems, and continuously seek innovative solutions. I have successfully developed 5+ full-stack projects with real-world applications, focusing on usability, performance, and scalability.
+
+Academically, I am pursuing a degree in Business Administration with IT at Maseno University, and I completed a Full-Stack Development course at eMobilis School of Information and Technology, which sharpened my technical skills and practical experience. As a lifelong learner, I stay up-to-date with emerging technologies to deliver high-quality, impactful solutions. My goal is to contribute to innovative projects and collaborate with diverse global teams to create meaningful impact.
+     </p>
+</section>
+
+<!-- Projects Section -->
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="project-list">
+
+    <!-- Food App -->
+    <div class="project-card">
+      <h3>Food Ordering Mobile App</h3>
+      <p>An Android mobile application that allows users to browse food items, place orders, save selections, and navigate through different app sections using a modern Compose-based UI.</p>
+      <p><strong>Tech:</strong> Kotlin, Jetpack Compose, Android Navigation, MVVM</p>
       <ul>
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li>Food menu listing with images and pricing</li>
+        <li>Add-to-order functionality with saved orders</li>
+        <li>Bottom navigation bar for seamless app navigation</li>
+        <li>Order confirmation and order management flow</li>
+        <li>Floating action button for quick help access</li>
+        <li>MVVM architecture using ViewModel for state management</li>
       </ul>
-      <button id="toggle-btn" aria-label="Toggle Dark Mode">Light Mode</button>
-    </nav>
-  </header>
-
-  <!-- Hero Section -->
-  <section id="hero">
-    <div id="hero-text">
-      <h1>Hello, I'm Jeremy</h1>
-      <p>I am a <span id="typing">passionate developer.</span></p>
-      <a href="pdf/resume.pdf" download id="resume-btn" aria-label="Download Resume">Download Resume</a>
-
-      <div id="social-links" aria-label="Social Media Links">
-        <a href="https://github.com/mungai614" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <img src="images/img_3.png" alt="Food Ordering App Screenshot">
+      <div class="project-links">
+        <a href="https://github.com/mungai614/food-ordering-app" target="_blank">GitHub</a>
       </div>
     </div>
 
-    <div id="hero-photo">
-      <img src="images/jeremy.jpg" alt="Jeremy Mungai Photo" />
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      Hello! I'm a passionate developer who loves turning coffee into code. I specialize in building sleek, modern websites and interactive apps.
-      I'm currently pursuing a degree in <strong>Business Administration with IT</strong> at <strong>Maseno University</strong>,
-      and I completed a Full-Stack Development course at <strong>eMobilis School of Information and Technology</strong>.
-      Welcome to my portfolio!
-    </p>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project-list">
-      <div class="project-card">
-        <h3>Project One</h3>
-        <p>A Restaurant management system. I implemented both frontend and backend together with its database.</p>
-      </div>
-      <div class="project-card">
-        <h3>Project Two</h3>
-        <p>An online shopping website for clothes. I implemented both frontend and backend together with its database.</p>
-      </div>
-      <div class="project-card">
-        <h3>Project Three</h3>
-        <p>A Hospital management system. I implemented both frontend and backend together with its database.<br>...And many others...</p>
+    <!-- Youngstars Contribution System -->
+    <div class="project-card">
+      <h3>United Youngstars Contribution Management System</h3>
+      <p>A full-stack web application for managing member contributions in an association. The system allows members to track their monthly contributions while administrators manage records efficiently.</p>
+      <p><strong>Tech:</strong> Django, Python, HTML, CSS, Bootstrap, JavaScript</p>
+      <ul>
+        <li>User authentication with login and registration</li>
+        <li>Member profile pages with contribution tracking</li>
+        <li>Admin dashboard for managing members and records</li>
+        <li>Monthly contribution monitoring and reporting</li>
+        <li>Responsive UI built with Bootstrap</li>
+        <li>Image carousel for feature highlights</li>
+      </ul>
+      <img src="images/img_4.png" alt="Youngstars Contribution System Screenshot">
+      <div class="project-links">
+        <a href="https://github.com/mungai614/youngstars-contribution-system" target="_blank">GitHub</a>
       </div>
     </div>
-  </section>
 
-  <!-- Skills Section -->
-  <section id="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>HTML</li>
-      <li>CSS</li>
-      <li>JavaScript</li>
-      <li>React</li>
-      <li>Git</li>
-      <li>Python</li>
-      <li>Django</li>
-      <li>SQL</li>
-      <li>Kotlin</li>
-    </ul>
-  </section>
-
-  <!-- Hobbies Section -->
-  <section id="hobbies">
-    <h2>Hobbies</h2>
-    <ul>
-      <li>Table Tennis</li>
-      <li>Photography</li>
-    </ul>
-  </section>
-
-  <!-- Certificate Section -->
-  <section id="certificate">
-    <h2>Certificate</h2>
-    <div class="certificate-container">
-
-      <a href="images/cert.jpg" download class="certificate-btn" aria-label="Download Certificate">Download Certificate</a>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="contact-container">
-      <div class="contact-info">
-        <div>
-          <strong>Address</strong>
-          <p>Kisumu, Kenya</p>
-        </div>
-        <div>
-          <strong>Call Me</strong>
-          <p>+254 720597285</p>
-        </div>
-        <div>
-          <strong>Email Me</strong>
-          <p>mungajeremia886@gmail.com</p>
-        </div>
+    <!-- Chemist Management System -->
+    <div class="project-card">
+      <h3>Chemist Management System</h3>
+      <p>A full-stack pharmacy management system designed to streamline the handling of medicines, customers, suppliers, and sales operations.</p>
+      <p><strong>Tech:</strong> Django, Python, HTML, CSS, Bootstrap, JavaScript</p>
+      <ul>
+        <li>Medicine inventory management with stock tracking</li>
+        <li>Customer records management</li>
+        <li>Supplier management for medicine sourcing</li>
+        <li>Sales recording and history tracking</li>
+        <li>User-friendly dashboard with quick module access</li>
+        <li>Responsive UI built with Bootstrap</li>
+      </ul>
+      <img src="images/img_2.png" alt="Chemist Management System Screenshot">
+      <div class="project-links">
+        <a href="https://github.com/mungai614/chemist-management-system" target="_blank">GitHub</a>
       </div>
-
-      <form id="contact-form" method="post" action="">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Your Name" required />
-
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="you@example.com" required />
-
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
-
-        <button type="submit">Send</button>
-      </form>
     </div>
-  </section>
 
-  <footer>
-    <p>&copy; 2025 Jeremy Mungai. All rights reserved.</p>
-  </footer>
+    <!-- Stock Management System -->
+    <div class="project-card">
+      <h3>Stock Management System</h3>
+      <p>A full-stack inventory and sales management system with an admin dashboard for monitoring stock levels, workers, and sales performance.</p>
+      <p><strong>Tech:</strong> Django, Python, HTML, CSS, JavaScript</p>
+      <ul>
+        <li>Low-stock alerts with minimum stock thresholds</li>
+        <li>Sales recording and sales history tracking</li>
+        <li>Worker and money management modules</li>
+        <li>Sales visualization with charts</li>
+        <li>Responsive admin dashboard</li>
+      </ul>
+      <img src="images/img_1.png" alt="Stock Management System Dashboard">
+      <div class="project-links">
+        <a href="https://github.com/mungai614/stock-management-system" target="_blank">GitHub</a>
+      </div>
+    </div>
 
-  <script src="script.js"></script>
+    <!-- MentalApp -->
+    <div class="project-card">
+      <h3>MentalApp – Mental Health Dashboard</h3>
+      <p>A full-stack web application designed to support mental well-being through community interaction, mentorship, and curated resources.</p>
+      <p><strong>Tech:</strong> Django, Python, HTML, CSS, JavaScript, Font Awesome</p>
+      <ul>
+        <li>Anonymous community posting for safe user interaction</li>
+        <li>Support groups with dedicated discussion pages</li>
+        <li>Mentorship request and management system</li>
+        <li>Mental health resources library</li>
+        <li>Real-time online users display</li>
+        <li>Responsive dashboard for mobile and desktop</li>
+      </ul>
+      <img src="images/img.png" alt="MentalApp Screenshot">
+      <div class="project-links">
+        <a href="https://github.com/mungai614/mentalapp" target="_blank">GitHub</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+  <h2>Skills</h2>
+  <ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+    <li>React</li>
+    <li>Git</li>
+    <li>Python</li>
+    <li>Django</li>
+    <li>SQL</li>
+    <li>Kotlin</li>
+  </ul>
+</section>
+
+<!-- Hobbies -->
+<section id="hobbies">
+  <h2>Hobbies</h2>
+  <ul>
+    <li>Table Tennis</li>
+    <li>Photography</li>
+  </ul>
+</section>
+
+<!-- Certificate -->
+<section id="certificate">
+  <h2>Certificate</h2>
+  <div class="certificate-container">
+    <a href="images/cert.jpg" download class="certificate-btn">Download Certificate</a>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact-container">
+    <div class="contact-info">
+      <div><strong>Address</strong><p>Kisumu, Kenya</p></div>
+      <div><strong>Call Me</strong><p>+254 720597285</p></div>
+      <div><strong>Email Me</strong><p>mungajeremia886@gmail.com</p></div>
+    </div>
+
+    <form id="contact-form">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your Name" required />
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required />
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Jeremy Mungai. All rights reserved.</p>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  document.querySelector('.menu-toggle').onclick = () => {
+    document.getElementById('nav-links').classList.toggle('show');
+  };
+
+  // Dark/Light mode toggle
+  const toggleBtn = document.getElementById('toggle-btn');
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    document.body.classList.toggle('light');
+    toggleBtn.textContent = document.body.classList.contains('dark') ? 'Light Mode' : 'Dark Mode';
+  });
+
+  // Typing animation
+  const typingEl = document.getElementById('typing');
+  let text = typingEl.textContent;
+  typingEl.textContent = '';
+  let i = 0;
+  function typeWriter() {
+    if (i < text.length) {
+      typingEl.textContent += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, 100);
+    }
+  }
+  typeWriter();
+</script>
+
 </body>
 </html>
